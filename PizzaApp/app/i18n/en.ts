@@ -44,8 +44,8 @@ const en = {
   demoNavigator: {
     componentsTab: "Components",
     debugTab: "Debug",
-    communityTab: "Community",
-    podcastListTab: "Podcast",
+    heatMap: "Calendar",
+    form: "CheckList",
   },
   demoCommunityScreen: {
     title: "Connect with the community",

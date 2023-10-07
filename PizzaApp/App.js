@@ -16,4 +16,5 @@ if (Platform.OS !== "web") {
   registerRootComponent(IgniteApp)
 }
 
-export default IgniteApp
+export default IgniteApp;
+
