@@ -18,14 +18,15 @@ const welcomeFace = require("../../assets/images/welcome-face.png")
 
 
 export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
-  function GenerateScreen(_props) {
+  function GenerateScreen({ route, navigation }) {
     {
         // @demo remove-block-start
-        const { navigation } = _props
+        //const { route, navigation } = _props
+        const { breakfast, lunch, dinner, sleep } = route.params;
         const {
           authenticationStore: { logout },
         } = useStores()
-      
+
         function goNext() {
           navigation.navigate("Demo", { screen: "DemoShowroom" })
         }
@@ -51,13 +52,9 @@ export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
                 tx="welcomeScreen.readyForLaunch"
                 preset="heading"
               />
-              <Text tx="welcomeScreen.exciting" preset="subheading" />
-              <Image style={$welcomeFace} source={welcomeFace} resizeMode="contain" />
             </View>
       
-            <View style={[$bottomContainer, $bottomContainerInsets]}>
-              <Text tx="welcomeScreen.postscript" size="md" />
-              {/* @demo remove-block-start */}
+            <View /*style={[$bottomContainer, $bottomContainerInsets]}*/>
               <Button
                 testID="next-screen-button"
                 preset="reversed"
@@ -75,6 +72,7 @@ export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
   const $container: ViewStyle = {
     flex: 1,
     backgroundColor: colors.background,
+    justifyContent: "center",
   }
   
   const $topContainer: ViewStyle = {
@@ -83,6 +81,7 @@ export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
     flexBasis: "57%",
     justifyContent: "center",
     paddingHorizontal: spacing.lg,
+    alignItems: 'center',
   }
   
   const $bottomContainer: ViewStyle = {
@@ -96,21 +95,15 @@ export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
     justifyContent: "space-around",
   }
   const $welcomeLogo: ImageStyle = {
-    height: 88,
+    height: 500,
     width: "100%",
     marginBottom: spacing.xxl,
   }
-  
-  const $welcomeFace: ImageStyle = {
-    height: 169,
-    width: 269,
-    position: "absolute",
-    bottom: -47,
-    right: -80,
-    transform: [{ scaleX: isRTL ? -1 : 1 }],
-  }
+
   
   const $welcomeHeading: TextStyle = {
     marginBottom: spacing.md,
+    justifyContent: "center",
+    alignItems: 'center',
   }
   

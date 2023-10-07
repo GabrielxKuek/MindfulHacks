@@ -30,8 +30,7 @@ import { useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"*/
 const welcomeLogo = require("../../assets/images/logo.png")
 
 
-export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function FormScreen(_props){
-    console.log('HeatMapScreen render'); 
+export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function FormScreen(_props){ 
     const { navigation } = _props
     const [breakfast, setBreakfast] = useState(false);
     const [lunch, setLunch] = useState(false);
@@ -39,7 +38,13 @@ export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function Form
     const [sleep, setSleep] = useState(false);
 
     function goNext() {
-      navigation.navigate("Generate")
+      navigation.navigate('Generate', { screen: 'Generate',
+      params: {
+        breakfastConsumption: breakfast, 
+        lunchConsumption: lunch, 
+        dinnerConsumption: dinner,
+        sleepQuantity: sleep ,}
+      });
     }
 
     return(
@@ -66,13 +71,14 @@ export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function Form
             <Button
               testID="next-screen-button"
               preset="reversed"
-              tx="welcomeScreen.letsGo"
+              text="Submit!"
               onPress={goNext}
               />
             {/* @demo remove-block-end */}
           </View>
         </Screen>
-      </View>);
+      </View>
+    );
 }
 
 // @demo remove-file

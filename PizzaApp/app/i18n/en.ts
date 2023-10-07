@@ -8,8 +8,8 @@ const en = {
   welcomeScreen: {
     postscript:
       "psst  — This probably isn't what your app looks like. (Unless your designer handed you these screens, and in that case, ship it!)",
-    readyForLaunch: "Your app, almost ready for launch!",
-    exciting: "(ohh, this is exciting!)",
+    readyForLaunch: "It's your 5th day submitting! Good Job!",
+    exciting: "It's your 5th day submitting! Good Job!",
     letsGo: "Let's go!", // @demo remove-current-line
   },
   errorScreen: {
