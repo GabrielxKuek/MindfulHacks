@@ -17,21 +17,25 @@ const reactNativeRadioLogo = require("../../assets/images/rnr-logo.png")
 const reactNativeNewsletterLogo = require("../../assets/images/rnn-logo.png")
 
 const data = {          
-  '2023-10-07': [{name: 'item 2 - any js object', height: 80, day: "Tuesday", info: { Meals: 1 }}],
-  '2023-10-06': [{name: 'item 3 - any js object', height: 80, day: 'Tuesday', info: { Meals: 100 }}],
-  '2023-10-09': [{name: 'item 4 - any js object', height: 80, day: 'Tuesday', info: { Meals: 3 }}],
-  '2023-10-08': [{name: 'item 5 - any js object', height: 80, day: 'Tuesday', info: { Meals: 2 }}],
+  '2023-10-01': [{name: 'item 2 - any js object', height: 80, day: "Tuesday", info: { Meals: 1, Sleep: 6, Special: "Only Went to buy food" }}],
+  '2023-10-02': [{name: 'item 3 - any js object', height: 80, day: 'Tuesday', info: { Meals: 3, Sleep: 3, Special: "Stayed at home all day :(" }}],
+  '2023-10-03': [{name: 'item 4 - any js object', height: 80, day: 'Tuesday', info: { Meals: 3, Sleep: 2, Special: "Stayed at home all day :(" }}],
+  '2023-10-04': [{name: 'item 5 - any js object', height: 80, day: 'Tuesday', info: { Meals: 2, Sleep: 7, Special: "Had some me time! ✅ " }}],
+  '2023-10-05': [{name: 'item 2 - any js object', height: 80, day: "Tuesday", info: { Meals: 1, Sleep: 8, Special: "Stayed at home all day :(" }}],
+  '2023-10-06': [{name: 'item 3 - any js object', height: 80, day: 'Tuesday', info: { Meals: 2, Sleep: 7, Special: "Went for a run! ✅" }}],
+  '2023-10-07': [{name: 'item 4 - any js object', height: 80, day: 'Tuesday', info: { Meals: 0, Sleep: 8, Special: "Played Soccer with Friends ✅" }}],
 }
 
 function markdays(databyDates) {
   const MarkedDate = {}
   for (const date in databyDates){
     const meals = databyDates[date][0]?.info?.Meals || 0;
-    if (meals < 2) {
-      MarkedDate[date] = {marked: true, selectedColor: '#edafab', selected: true}; 
+    const sleep = databyDates[date][0]?.info?.Sleep || 0;
+    if (meals > 1 && sleep > 6) {
+        MarkedDate[date] = {marked: true, selectedColor: '#c5e8b3', selected: true}; 
     }
     else {
-      MarkedDate[date] = {marked: true, selectedColor: '#c5e8b3', selected: true};
+      MarkedDate[date] = {marked: true, selectedColor: '#edafab', selected: true};
     }
   }
   return MarkedDate
@@ -40,9 +44,7 @@ function markdays(databyDates) {
 export const HeatMapScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
   function HeatMapScreen(_props) {
     console.log('HeatMapScreen render'); 
-    const {
-      authenticationStore: { logout },
-    } = useStores()
+
 
     return (
       <View style={containerStyle}>
@@ -58,9 +60,9 @@ export const HeatMapScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
 
           renderItem={(item, firstItemInDay) => {
             return <View>  
-            <Card heading={item.name}
-            content={item.info.Meals}
-            footer="Consectetur nulla non aliquip velit." />
+            <Card heading={`Slept ${item.info.Sleep} hours ${ item.info.Sleep > 6 ? "✅" : (item.info.Meals <= 3 ? "❌" : "")}`}
+            content={`Ate ${item.info.Meals} / 3 Meals ${ item.info.Meals === 3 ? "✅" : (item.info.Meals === 0 ? "❌" : "")}`}
+            footer={`${item.info.Special}`} />
           </View>;
           }}
 
@@ -70,9 +72,6 @@ export const HeatMapScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
             console.log(calendarOpened);
           }}
            />
-           <View style={$buttonContainer}>
-              <Button style={$button} tx="common.logOut" onPress={logout} />
-          </View>
         </Screen>
       </View>
     );
@@ -84,10 +83,3 @@ const containerStyle: ViewStyle = {
   flex: 1,
 };
 
-const $button: ViewStyle = {
-  marginBottom: spacing.xs,
-}
-
-const $buttonContainer: ViewStyle = {
-  marginBottom: spacing.md,
-}

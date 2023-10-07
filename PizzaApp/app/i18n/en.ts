@@ -43,7 +43,7 @@ const en = {
   },
   demoNavigator: {
     componentsTab: "Components",
-    debugTab: "Debug",
+    Settings: "Settings",
     heatMap: "Calendar",
     form: "CheckList",
   },

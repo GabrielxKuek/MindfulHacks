@@ -8,3 +8,4 @@ export * from "./ErrorScreen/ErrorBoundary"
 // export other screens here
 export * from "./form"
 export * from "./Generate"
+export * from "./Settings"

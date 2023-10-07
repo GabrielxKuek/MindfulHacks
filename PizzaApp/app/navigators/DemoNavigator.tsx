@@ -5,7 +5,7 @@ import { TextStyle, ViewStyle } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import { Icon } from "../components"
 import { translate } from "../i18n"
-import { HeatMapScreen, FormScreen } from "../screens"
+import { HeatMapScreen, FormScreen, SettingsScreen } from "../screens"
 import { DemoPodcastListScreen } from "../screens/DemoPodcastListScreen"
 import { colors, spacing, typography } from "../theme"
 import { AppStackParamList, AppStackScreenProps } from "./AppNavigator"
@@ -64,6 +64,18 @@ export function DemoNavigator() {
           tabBarLabel: translate("demoNavigator.form"),
           tabBarIcon: ({ focused }) => (
             <Icon icon="podcast" color={focused && colors.tint} size={30} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          tabBarAccessibilityLabel: translate("demoNavigator.Settings"),
+          tabBarLabel: translate("demoNavigator.Settings"),
+          tabBarIcon: ({ focused }) => (
+            <Icon icon="ladybug" color={focused && colors.tint} size={30} />
           ),
         }}
       />
