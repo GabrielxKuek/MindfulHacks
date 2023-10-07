@@ -13,24 +13,12 @@ import { AppStackScreenProps } from "../navigators"
 //import { useForm, Controller } from 'react-hook-form';
 import { TextInput } from 'react-native';
 
-/*import React, { FC } from "react"
-import { Image, ImageStyle, TextStyle, View, ViewStyle } from "react-native"
-import {
-  Button, // @demo remove-current-line
-  Text,
-} from "../components"
-import { isRTL } from "../i18n"
-import { useStores } from "../models" // @demo remove-current-line
-import { AppStackScreenProps } from "../navigators" // @demo remove-current-line
-import { colors, spacing } from "../theme"
-import { useHeader } from "../utils/useHeader" // @demo remove-current-line
-import { useSafeAreaInsetsStyle } from "../utils/useSafeAreaInsetsStyle"*/
-
 // this would be a wording or smth that states generate
-const welcomeLogo = require("../../assets/images/logo.png")
+const welcomeLogo = require("../../assets/images/FormLogo.jpg")
 
 
-export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function FormScreen(_props){ 
+export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function FormScreen(_props){
+    console.log('HeatMapScreen render'); 
     const { navigation } = _props
     const [breakfast, setBreakfast] = useState(false);
     const [lunch, setLunch] = useState(false);
@@ -48,25 +36,28 @@ export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function Form
     }
 
     return(
-        <View style={containerStyle}>
-        <Screen preset="scroll" contentContainerStyle={containerStyle} safeAreaEdges={["top"]}>
+      <View style = {$container}>
+        <Screen preset="scroll" contentContainerStyle={$container} safeAreaEdges={["top"]}>
+        <View style={$topContainer}>
+              <Image style={$welcomeLogo} source={welcomeLogo} resizeMode="contain" />
+        </View>
           <View style={$buttonContainer}>
-              <Button style={breakfast ? $buttonOn : $buttonOff } text="Had Breakfast?" onPress={() => { setBreakfast(!breakfast )}} />
+              <Button style={breakfast ? $buttonOn : $buttonOff } text="Went outside to touch grass" onPress={() => { setBreakfast(!breakfast )}} />
           </View>
 
           <View style={$buttonContainer}>
-              <Button style={lunch ? $buttonOn : $buttonOff } text="Had Lunch?" onPress={() => { setLunch(!lunch )}} />
+              <Button style={lunch ? $buttonOn : $buttonOff } text="Studied for 2 hours" onPress={() => { setLunch(!lunch )}} />
           </View>
 
           <View style={$buttonContainer}>
-              <Button style={dinner ? $buttonOn : $buttonOff } text="Had Dinner?" onPress={() => { setDinner(!dinner )}} />
+              <Button style={dinner ? $buttonOn : $buttonOff } text="Exercised for 30 minutes" onPress={() => { setDinner(!dinner )}} />
           </View>
 
           <View style={$buttonContainer}>
-              <Button style={sleep ? $buttonOn : $buttonOff } text="Slept?" onPress={() => { setSleep(!sleep)}} />
+              <Button style={sleep ? $buttonOn : $buttonOff } text="Me Time!" onPress={() => { setSleep(!sleep)}} />
           </View>
 
-          <View>
+          <View style={$buttonContainer}>
             {/* @demo remove-block-start */}
             <Button
               testID="next-screen-button"
@@ -78,24 +69,42 @@ export const FormScreen: FC<DemoTabScreenProps<"DemoCommunity">> = function Form
           </View>
         </Screen>
       </View>
-    );
+      );
 }
 
 // @demo remove-file
-const containerStyle: ViewStyle = {
+const $container: ViewStyle = {
   flex: 1,
-};
+}
+
+const $topContainer: ViewStyle = {
+  flexShrink: 1,
+  flexGrow: 1,
+  flexBasis: "57%",
+  justifyContent: "center",
+  paddingHorizontal: spacing.lg,
+}
 
 const $buttonOn: ViewStyle = {
   marginBottom: spacing.xs,
-  backgroundColor: '#c5e8b3'
+  backgroundColor: 'green'
 }
 
 const $buttonOff: ViewStyle = {
   marginBottom: spacing.xs,
-  backgroundColor: '#edafab'
+  backgroundColor: 'red'
 }
 
 const $buttonContainer: ViewStyle = {
-  marginBottom: spacing.md,
+  flexShrink: 1,
+  flexGrow: 1,
+  //flexBasis: "57%",
+  justifyContent: "center",
+  paddingHorizontal: spacing.lg,
+}
+
+const $welcomeLogo: ImageStyle = {
+  height: 200,
+  width: "100%",
+  marginBottom: spacing.xxl,
 }
