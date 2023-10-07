@@ -28,7 +28,7 @@ export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
         } = useStores()
 
         function goNext() {
-          navigation.navigate("Demo", { screen: "DemoShowroom" })
+          navigation.navigate("HeatMap")
         }
       
         useHeader(
@@ -49,7 +49,7 @@ export const GenerateScreen: FC<DemoTabScreenProps<"DemoCommunity">> =
               <Text
                 testID="welcome-heading"
                 style={$welcomeHeading}
-                tx="welcomeScreen.readyForLaunch"
+                text="It's your 5th day submitting! Good Job!"
                 preset="heading"
               />
             </View>

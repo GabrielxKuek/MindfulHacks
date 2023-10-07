@@ -88,12 +88,12 @@ const containerStyle: ViewStyle = {
 
 const $buttonOn: ViewStyle = {
   marginBottom: spacing.xs,
-  backgroundColor: 'green'
+  backgroundColor: '#c5e8b3'
 }
 
 const $buttonOff: ViewStyle = {
   marginBottom: spacing.xs,
-  backgroundColor: 'red'
+  backgroundColor: '#edafab'
 }
 
 const $buttonContainer: ViewStyle = {
