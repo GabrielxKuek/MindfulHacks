@@ -82,17 +82,19 @@ const $topContainer: ViewStyle = {
   flexBasis: "57%",
   justifyContent: "center",
   paddingHorizontal: spacing.lg,
+  alignItems: 'center',
 }
 
 const $bottomContainer: ViewStyle = {
   flexShrink: 1,
   flexGrow: 0,
-  flexBasis: "43%",
+  flexBasis: "20%",
   backgroundColor: colors.palette.neutral100,
   borderTopLeftRadius: 16,
   borderTopRightRadius: 16,
   paddingHorizontal: spacing.lg,
   justifyContent: "space-around",
+  alignItems: 'center',
 }
 
 const $welcomeLogo: ImageStyle = {
