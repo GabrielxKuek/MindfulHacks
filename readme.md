@@ -27,4 +27,4 @@ Gaba is a daily calendar-planner and journal app to help people record what they
 Gabriel Kuek, Xavier Yeo Yi Hern, Pua XinHui Meagan, Ng Zing Hng
 
 ## Acknowledgements
-This project is an undertaking of the SUTD-SP SwiftUI Nano Academy.
+This project is a submission for MindfulHacks 2023.
