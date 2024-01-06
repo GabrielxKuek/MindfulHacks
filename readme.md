@@ -5,7 +5,7 @@
 <h4 align="center">
   <a href="https://www.canva.com/design/DAFxZwA4-4Y/BTrjQIzPgt0zHZlnJZyBYw/edit?utm_content=DAFxZwA4-4Y&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Presentation slides</a>
   <span> · </span>
-  <a href="https://www.figma.com/file/GUn59YdXXIvoGhZgvh0iEt/Mindful-Innovators---MindfulHacks?type=design&node-id=0%3A1&mode=design&t=jfofdLdh4A07bpfT-1">Figma View</a>
+  <a href="">Figma View</a>
 </h4>
 
 ---
